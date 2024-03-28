@@ -1,63 +1,97 @@
 <div class="row">
-    <div class="col-4"></div>
-    <div class="card">
+    <div class="col-5">
+        <h3>Form<span> Validations</span></h3>
+    </div>
+    <div class="card shadow">
         <div class="row header">
             <h5>Registration Form</h5>
         </div>
         <form [formGroup]="regform">
-            <input type="image" placeholder="click To Add Photo"><br>
-            <label>FullName</label>
-            <input type="text" class="form-control" formControlName="fname">
-            <small class="text text-info" *ngIf="Fname.errors?.['required']&&(Fname.dirty||Fname.touched)">
-                Enter your full name
-            </small>
-            <small class="text text-info" *ngIf="Fname.errors?.['pattern']&&(Fname.dirty||Fname.touched)">
-                Enter Caps
-            </small><br>
-            <label class="">Mobile.no</label>
-            <input type="number" class="form-control" formControlName="mobile">
-            <!-- mobile.no Validations -->
-            <small class="text text-info" *ngIf="Mobile.errors?.['required']&&(Mobile.dirty||Mobile.touched)">
-                Enter your mobile number</small><br>
+            <div class="row">
+                <input type="image" placeholder="click To Add Photo"><br>
+                <div class="col">
 
-            <label>Email:</label>
-            <input type="email" class="form-control" formControlName="email">
-            <!-- email validations -->
-            <small class="text text-info" *ngIf="Email.errors?.['required']&&(Email.dirty||Email.touched)">
-Enter Email Id
-            </small><br>
+                    <!-- fullname -->
+                    <label>FullName</label>
+                    <input type="text" class="form-control" formControlName="fname">
+                    <small class="text text-info" *ngIf="Fname.errors?.['required']&&(Fname.dirty||Fname.touched)">
+                        Enter your full name
+                    </small>
+                    <small class="text text-info" *ngIf="Fname.errors?.['minlength']&&(Fname.dirty||Fname.touched)">
+                        Enter Min Aphabet
+                    </small>
+                    <small class="text text-info" *ngIf="Fname.errors?.['pattern']&&(Fname.dirty||Fname.touched)">
+                        Enter Caps
+                    </small><br>
 
-            <i class="fas fa-envelope"></i>
-            <label>DOB:</label>
-            <input type="datetime-local" class="form-control" formControlName="dob">
-            <!-- dob validations -->
-              <small class="text text-info" *ngIf="Dob.errors?.['required']&&(Dob.dirty||Dob.touched)">
-            Select your Date of Birth
-            </small><br>
+                    <!-- DOB -->
+                    <label>DOB:</label>
+                    <input type="datetime-local" class="form-control" formControlName="dob">
+                    <!-- dob validations -->
+                    <small class="text text-info" *ngIf="Dob.errors?.['required']&&(Dob.dirty||Dob.touched)">
+                        Select your Date of Birth
+                    </small><br>
 
-            <label>Address:</label>
-            <input type="text" class="form-control" formControlName="address">
-            <!-- address validations -->
-            <small class="text text-info" *ngIf="Address.errors?.['required']&&(Address.dirty||Address.touched)">
-             Fill Address
-            </small><br>
-            
-            <div class="input-group">
-                <label>password:</label>
-                <i class="fa fa-eye"></i>
-                <input type="password" class="form-control" formControlName="password">
-                
+                    <!-- Address -->
+                    <label>Address:</label>
+                    <textarea type="text" class="form-control" formControlName="address"></textarea>
+                    <!-- address validations -->
+                    <small class="text text-info"
+                        *ngIf="Address.errors?.['required']&&(Address.dirty||Address.touched)">
+                        Fill Address
+                    </small><br>
+
+
+                </div>
+                <div class="col">
+                    <!-- mobile number -->
+                    <label class="">Mobile.no</label>
+                    <input type="tel" class="form-control" formControlName="mobile">
+                    <!-- mobile.no Validations -->
+                    <small class="text text-info" *ngIf="Mobile.errors?.['required']&&(Mobile.dirty||Mobile.touched)">
+                        Enter your mobile number</small>
+                    <small class="text text-info" *ngIf="Mobile.errors?.['pattern']&&(Mobile.dirty||Mobile.touched)">
+                        Enter Numbers Only</small>
+                    <small class="text text-info" *ngIf="Mobile.errors?.['maxlength']&&(Mobile.dirty||Mobile.touched)">
+                        Max Numbers reached
+                    </small><br>
+                    <!-- email -->
+                    <label>Email:</label>
+                    <input type="email" class="form-control" formControlName="email">
+                    <!-- email validations -->
+                    <small class="text text-info" *ngIf="Email.errors?.['required']&&(Email.dirty||Email.touched)">
+                        Enter Email Id
+                    </small>
+                    <small class="text text-info" *ngIf="Email.errors?.['email']&&(Email.dirty||Email.touched)">
+                        Enter Valid Emailid
+                    </small><br>
+
+                    <!-- password -->
+                    <div class="input-group">
+                        <label>password:</label>
+                        <i class="fa fa-eye"></i>
+                        <input type="password" class="form-control" formControlName="password">
+
+                    </div>
+                    <small class="text text-info"
+                        *ngIf="Password.errors?.['required']&&(Password.dirty||Password.touched)">
+                        Enter Password
+                    </small>
+                    <small class="text text-info"
+                        *ngIf="Password.errors?.['pattern']&&(Password.dirty||Password.touched)">
+                        Create Strong Password
+                    </small><br>
+                </div>
             </div>
-            <small class="text text-info" *ngIf="Password.errors?.['required']&&(Password.dirty||Password.touched)">
-                Enter Password
-                 </small><br>
-                 
-            <input type="checkbox" style="width: 15px; height:15px" formControlName="cbox"><label>I Accept T&C</label><br>
-            <small class="text text-info" *ngIf="Cbox.errors?.['required']&&(Cbox.dirty||Cbox.untouched)">
-            Click to Accept
+            <input type="checkbox" style="width: 20px; height:20px" formControlName="cbox">
+            <label> I AcceptT&C</label><br>
+            <small class="text text-info" *ngIf="Cbox.errors?.['required']&&(Cbox.dirty||Cbox.touched)">
+                Click to Accept
             </small><br>
-            
-            <button class="btn btn-outline-info" >Register</button>
+
+            <div class="button">
+                <button class="btn btn-info" [disabled]="regform.invalid">Register</button>
+            </div>
         </form>
     </div>
 </div>

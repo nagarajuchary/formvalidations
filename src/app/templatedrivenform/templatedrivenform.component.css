@@ -1,5 +1,10 @@
 .card{
-    width: 400px;
+   width: 800px;
+   opacity: 100px;
+   margin-top: 100px;
+   background-color: transparent;
+   opacity: 100px;
+ 
 }
 form{
     padding-left: 20px;
@@ -7,21 +12,27 @@ form{
     
 }
 .header{
-    background-color: rgb(167, 208, 126);
+    background-color:rgb(139, 160, 143);
     font-family:'Times New Roman', Times, serif;
     text-align: center;
-    height: 50px;
-    padding-top: 10px;
+    height: 80px;
+    padding-top: 30px;
     h5{
         font-size: 30px;
     }
 }
-button{
+.button{
     margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 120px;
+    margin-bottom: 20px;
+text-align: center;
 }
 label{
     
         margin-top: 10px;
+}
+h3{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding-left: 100px;
+    font-size: 50px;
+    padding-top: 300px;
 }
